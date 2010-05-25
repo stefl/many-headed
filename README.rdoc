@@ -1,6 +1,20 @@
 = many-headed
 
-Description goes here.
+Many headed is a trivial little application of the unix fork mechanism. 
+
+It's designed to supervise N workers (the heads of the hydra), restarting them if they fail to complete successfully. 
+
+The usage is as follows:
+
+  require "many-headed"
+
+  head_number = ManyHeaded.hydra 5
+
+  # We now have 5 processes at this point, plus the original process acting as a supervisor.
+
+  some_code
+
+If any of the heads fails (exits with a non-zero status code - e.g. due to an uncaught exception), it will restart automatically from the point at which hydra was called. 
 
 == Note on Patches/Pull Requests
  

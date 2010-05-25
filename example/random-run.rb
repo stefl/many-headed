@@ -1,4 +1,4 @@
-$: << "lib"
+$: << "#{File.dirname(__FILE__)}/../lib"
 
 require "many-headed"
 
@@ -18,5 +18,4 @@ if failed
   exit 1
 else 
   puts "#{i} completed successfully"
-  exit 0
 end
